@@ -1,3 +1,4 @@
+#
 require(quantmod)
 require(PerformanceAnalytics)
 getSymbols(c("SPY", "TLT"), from="1990-01-01")
