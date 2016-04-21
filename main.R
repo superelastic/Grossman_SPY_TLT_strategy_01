@@ -1,7 +1,7 @@
 #
 require(quantmod)
 require(PerformanceAnalytics)
-getSymbols(c("SPY", "TLT"), from="1990-01-01")
+getSymbols(c("SPY", "TLT"), from="2010-01-01")
 returns <- merge(Return.calculate(Ad(SPY)), Return.calculate(Ad(TLT)), join='inner')
 returns <- returns[-1,]
 configs <- list()
@@ -54,4 +54,4 @@ weightSPY <- do.call(rbind, weightSPY)
 weightSPY <- (weightSPY-1)*.05
 align <- cbind(weightSPY, stratRets)
 align <- na.locf(align)
-chart.TimeSeries(align[-(1:3000),1], date.format="%Y", ylab="Weight SPY", main="Weight of SPY in SPY-TLT pair")
+chart.TimeSeries(align[-(1:10),1], date.format="%Y", ylab="Weight SPY", main="Weight of SPY in SPY-TLT pair")
